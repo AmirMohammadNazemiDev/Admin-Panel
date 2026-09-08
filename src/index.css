@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "shabnam";
   src: url("assets/fonts/Shabnam-FD-WOL.ttf") format("woff");
