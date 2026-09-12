@@ -8,22 +8,23 @@ import AddUserPage from "../../pages/users/add-user";
 
 function Content() {
   return (
-    <div className="fixed top-0 left-0 pt-16 pr-64 bg-gray-100 h-screen w-screen dark:bg-gray-800">
-      <div className="p-4 h-full w-full">
+    <div className="fixed inset-0 bg-gray-100 pt-16 pr-64 dark:bg-gray-800">
+      <div className="h-full w-full overflow-y-auto p-4">
         <Routes>
-          <Route path="/users" element={<UsersPage/>} />
-          <Route path="/users/add" element={<AddUserPage/>}/>
-          <Route path="/posts" element={<PostsPage/>} />
-          <Route path="/comments" element={<CommentsPage/>}/>
-          <Route path="/tasks" element={<TasksPage/>}/>
-          <Route path="/gallery" element={<GalleryPage/>}/>
-          <Route path="/" element={<Navigate to={"/users"}/>}/>
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/add" element={<AddUserPage />} />
+          <Route path="/posts" element={<PostsPage />} />
+          <Route path="/comments" element={<CommentsPage />} />
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route
+            path="/"
+            element={<Navigate to="/users" />}
+          />
         </Routes>
       </div>
     </div>
   );
 }
-
-
 
 export default Content;
