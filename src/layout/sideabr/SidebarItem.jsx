@@ -1,15 +1,19 @@
 import { NavLink } from "react-router";
 
-const SidebarItem = ({ to, children }) => {
+const SidebarItem = ({ to, children, icon: Icon, isOpen }) => {
   return (
     <li>
       <NavLink
         to={to}
         className={({ isActive }) =>
-          `block hover:bg-blue-100 dark:hover:bg-gray-700 p-2 rounded w-full h-full ${isActive ? "bg-blue-300 dark:bg-gray-800" : ""}`
+          `flex items-center gap-3 rounded-lg p-2 transition hover:bg-blue-100 dark:hover:bg-gray-700 ${
+            isActive ? "bg-blue-300 dark:bg-gray-800" : ""
+          } ${!isOpen ? "justify-center" : ""}`
         }
       >
-        {children}
+        <Icon size={22} />
+
+        {isOpen && <span>{children}</span>}
       </NavLink>
     </li>
   );

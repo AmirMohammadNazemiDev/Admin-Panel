@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {
+  FiUsers,
+  FiFileText,
+  FiMessageSquare,
+  FiCheckSquare,
+  FiImage,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 import Darkmode from "../../components/Darkmode";
 import SidebarItem from "./SidebarItem";
 
@@ -19,25 +27,45 @@ function Sidebar() {
           </div>
         )}
 
-        <div className={`flex items-center ${!isOpen ? "w-full justify-center" : "gap-3"}`}>
+        <div
+          className={`flex items-center ${!isOpen ? "w-full justify-center" : "gap-3"}`}
+        >
           {isOpen && <Darkmode />}
 
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-lg p-2 text-white transition hover:bg-blue-500 dark:hover:bg-gray-700"
           >
-            {isOpen ? <FiChevronRight size={22} /> : <FiChevronLeft size={22} />}
+            {isOpen ? (
+              <FiChevronRight size={22} />
+            ) : (
+              <FiChevronLeft size={22} />
+            )}
           </button>
         </div>
       </div>
 
       <div className="flex h-full flex-col gap-4 rounded-b-lg bg-blue-200 p-4 dark:bg-gray-900">
-        <ul>
-          <SidebarItem to="/users">{isOpen && "کاربران"}</SidebarItem>
-          <SidebarItem to="/posts">{isOpen && "پست ها"}</SidebarItem>
-          <SidebarItem to="/comments">{isOpen && "کامنت ها"}</SidebarItem>
-          <SidebarItem to="/tasks">{isOpen && "تسک ها"}</SidebarItem>
-          <SidebarItem to="/gallery">{isOpen && "گالری"}</SidebarItem>
+        <ul className="space-y-2">
+          <SidebarItem to="/users" icon={FiUsers} isOpen={isOpen}>
+            کاربران
+          </SidebarItem>
+
+          <SidebarItem to="/posts" icon={FiFileText} isOpen={isOpen}>
+            پست ها
+          </SidebarItem>
+
+          <SidebarItem to="/comments" icon={FiMessageSquare} isOpen={isOpen}>
+            کامنت ها
+          </SidebarItem>
+
+          <SidebarItem to="/tasks" icon={FiCheckSquare} isOpen={isOpen}>
+            تسک ها
+          </SidebarItem>
+
+          <SidebarItem to="/gallery" icon={FiImage} isOpen={isOpen}>
+            گالری
+          </SidebarItem>
         </ul>
       </div>
     </div>
